@@ -1,36 +1,17 @@
 package com.hackcrown.demo.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+public class SysUser {
+    private Integer id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
+    private String username;
 
-/**
- * @Auther: bunuo
- * @Date: 2018/6/9 11:17
- * @Description:
- */
-@Entity(name="sys_user")
-@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
-public class SysUser implements java.io.Serializable {
+    private String password;
 
-    @Id
-    @GeneratedValue
-    private Integer id; //
+    private String sex;
 
-    @NotBlank
-    private String username; //用户名
+    private Integer age;
 
-    @NotBlank
-    private String password; //密码
-
-    private String sex; //性别
-
-    private Integer age; //年龄
-
-    private String phone; //手机号
+    private String phone;
 
     public Integer getId() {
         return id;
@@ -45,7 +26,7 @@ public class SysUser implements java.io.Serializable {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username == null ? null : username.trim();
     }
 
     public String getPassword() {
@@ -53,7 +34,7 @@ public class SysUser implements java.io.Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password == null ? null : password.trim();
     }
 
     public String getSex() {
@@ -61,7 +42,7 @@ public class SysUser implements java.io.Serializable {
     }
 
     public void setSex(String sex) {
-        this.sex = sex;
+        this.sex = sex == null ? null : sex.trim();
     }
 
     public Integer getAge() {
@@ -77,18 +58,6 @@ public class SysUser implements java.io.Serializable {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    @Override
-    public String toString() {
-        return "SysUser{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", sex='" + sex + '\'' +
-                ", age=" + age +
-                ", phone='" + phone + '\'' +
-                '}';
+        this.phone = phone == null ? null : phone.trim();
     }
 }

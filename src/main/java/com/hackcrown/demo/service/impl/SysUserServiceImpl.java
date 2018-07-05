@@ -18,27 +18,26 @@ public class SysUserServiceImpl implements SysUserService{
     @Transactional
     @Override
     public void insert(SysUser sysUser) {
-        sysUserDao.save(sysUser);
+
     }
 
     @Override
     public List<SysUser> getList() {
-        return sysUserDao.findAll();
+        return null;
     }
 
     @Override
     public SysUser getById(Integer id) {
-        return sysUserDao.getOne(id);
+        return null;
     }
 
     @Override
     public void update(SysUser sysUser) {
-        sysUserDao.save(sysUser);
     }
 
     @Override
     public void delete(Integer id) {
-        sysUserDao.deleteById(id);
+
     }
 
 }

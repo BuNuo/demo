@@ -1,12 +1,15 @@
 #开发环境配置
+server:
+  port: 8080
+
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/springboot_demo
     username: root
     password: root
-  jpa:
-    database: mysql
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+
+mybatis:
+  mapper-locations: mapper/*.xml
+  type-aliases-package: com.hackcrown.demo.domain
+
