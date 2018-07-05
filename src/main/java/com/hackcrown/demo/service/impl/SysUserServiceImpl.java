@@ -1,6 +1,6 @@
 package com.hackcrown.demo.service.impl;
 
-import com.hackcrown.demo.dao.SysUserDao;
+import com.hackcrown.demo.dao.SysUserMapper;
 import com.hackcrown.demo.domain.SysUser;
 import com.hackcrown.demo.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +13,17 @@ import java.util.List;
 public class SysUserServiceImpl implements SysUserService{
 
     @Autowired
-    private SysUserDao sysUserDao;
+    private SysUserMapper sysUserDao;
 
     @Transactional
     @Override
     public void insert(SysUser sysUser) {
-
+        sysUserDao.insert(sysUser);
     }
 
     @Override
     public List<SysUser> getList() {
-        return null;
+        return sysUserDao.getList();
     }
 
     @Override

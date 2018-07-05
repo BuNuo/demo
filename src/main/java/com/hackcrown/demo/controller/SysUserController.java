@@ -1,7 +1,9 @@
 package com.hackcrown.demo.controller;
 
+import com.hackcrown.demo.domain.Result;
 import com.hackcrown.demo.domain.SysUser;
 import com.hackcrown.demo.service.SysUserService;
+import com.hackcrown.demo.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,13 +29,12 @@ public class SysUserController {
     }
 
     @RequestMapping(value = "/getList", method = RequestMethod.GET)
-    public List<SysUser> getUserList() {
-        return sysUserService.getList();
+    public Result<List> getUserList() {
+        return ResultUtil.success(sysUserService.getList());
     }
 
     @PostMapping(value = "/addUser")
     public void insert(@RequestBody SysUser sysUser) {
-        System.out.print(sysUser);
         sysUserService.insert(sysUser);
     }
 
