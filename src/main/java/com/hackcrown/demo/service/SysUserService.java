@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface SysUserService {
 
-    void insert(SysUser sysUser);
+	SysUser insert(SysUser sysUser);
 
     List<SysUser> getList();
 
@@ -16,5 +16,7 @@ public interface SysUserService {
     void update(SysUser sysUser);
 
     void delete(Integer id);
+    
+    int insertTwo() throws Exception;
 
 }

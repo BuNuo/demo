@@ -6,10 +6,12 @@ package com.hackcrown.demo.enums;
  * @Description:
  */
 public enum ResultEnum {
+	SYSTEM_ERROR(-1, "系统异常"),
     UNKONW_ERROR(-1, "未知错误"),
     SUCCESS(0, "成功"),
     PRIMARY_SCHOOL(100, "我猜你可能还在上小学"),
     MIDDLE_SCHOOL(101, "你可能在上初中"),
+    SYSUSER_NULL(201, "用户不存在"),
 
     ;
 

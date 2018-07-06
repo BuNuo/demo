@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hackcrown.demo.dao.SysUserMapper">
   <resultMap id="BaseResultMap" type="com.hackcrown.demo.domain.SysUser">
-    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="id" jdbcType="VARCHAR" property="id" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="sex" jdbcType="VARCHAR" property="sex" />
@@ -16,16 +16,19 @@
     select 
     <include refid="Base_Column_List" />
     from sys_user
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sys_user
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.hackcrown.demo.domain.SysUser">
+    <selectKey keyProperty="id" resultType="string" order="BEFORE">  
+	        select replace(uuid(), '-', '') as id from dual
+	</selectKey>
     insert into sys_user (id, username, password, 
       sex, age, phone)
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{sex,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.hackcrown.demo.domain.SysUser">
@@ -52,7 +55,7 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id,jdbcType=VARCHAR},
       </if>
       <if test="username != null">
         #{username,jdbcType=VARCHAR},
@@ -90,7 +93,7 @@
         phone = #{phone,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.hackcrown.demo.domain.SysUser">
     update sys_user
@@ -99,7 +102,7 @@
       sex = #{sex,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
       phone = #{phone,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <select id="getList" resultMap="BaseResultMap">
     select

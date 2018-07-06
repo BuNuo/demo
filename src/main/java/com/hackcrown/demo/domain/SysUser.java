@@ -1,7 +1,7 @@
 package com.hackcrown.demo.domain;
 
 public class SysUser {
-    private Integer id;
+    private String id;
 
     private String username;
 
@@ -13,11 +13,11 @@ public class SysUser {
 
     private String phone;
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -60,4 +60,10 @@ public class SysUser {
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
     }
+
+	@Override
+	public String toString() {
+		return "SysUser [id=" + id + ", username=" + username + ", password=" + password + ", sex=" + sex + ", age="
+				+ age + ", phone=" + phone + "]";
+	}
 }
