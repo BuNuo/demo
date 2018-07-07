@@ -1,11 +1,8 @@
 package com.hackcrown.demo.dao;
 
 import com.hackcrown.demo.domain.SysUser;
-import org.apache.ibatis.annotations.Mapper;
-
 import java.util.List;
 
-@Mapper
 public interface SysUserMapper {
     int deleteByPrimaryKey(Integer id);
 

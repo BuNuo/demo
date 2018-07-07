@@ -8,6 +8,10 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/springboot_demo
     username: root
     password: root
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
 
 mybatis:
   mapper-locations: mapper/*.xml

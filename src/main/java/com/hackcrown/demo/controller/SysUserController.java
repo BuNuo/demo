@@ -8,6 +8,7 @@ import com.hackcrown.demo.service.SysUserService;
 import com.hackcrown.demo.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -63,5 +64,15 @@ public class SysUserController {
     @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable("id") Integer id) {
         sysUserService.delete(id);
+    }
+    
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello() {
+    	return "index";
+    }
+    
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public ModelAndView index() {
+    	return new ModelAndView("index");
     }
 }
