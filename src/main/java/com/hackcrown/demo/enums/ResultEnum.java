@@ -12,7 +12,7 @@ public enum ResultEnum {
     PRIMARY_SCHOOL(100, "我猜你可能还在上小学"),
     MIDDLE_SCHOOL(101, "你可能在上初中"),
     SYSUSER_NULL(201, "用户不存在"),
-
+    NOT_LOGIN(301, "用户未登录"),
     ;
 
     private Integer code;
