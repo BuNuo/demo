@@ -1,4 +1,4 @@
-package com.hackcrown.demo.config;
+package com.hackcrown.demo.config.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 	
-	@Value("$(login-intercepter-switch)")
+	@Value("$(login-interceptor-switch)")
     private String LoginSwitch;
 
     @Override

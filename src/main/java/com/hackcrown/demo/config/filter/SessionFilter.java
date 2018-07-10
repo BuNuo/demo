@@ -1,4 +1,4 @@
-package com.hackcrown.demo.config;
+package com.hackcrown.demo.config.filter;
 
 import java.io.IOException;
 import java.util.ArrayList;

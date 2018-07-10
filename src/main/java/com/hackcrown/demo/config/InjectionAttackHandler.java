@@ -87,8 +87,8 @@ public interface InjectionAttackHandler {
      * @param response
      * @param parameters
      */
-    void attackHandle ( HttpServletRequest request , HttpServletResponse response , String parameters ) throws
-                                                                                                        IOException;
+    void attackHandle ( HttpServletRequest request ,
+                        HttpServletResponse response , String parameters ) throws IOException;
 
 
 }

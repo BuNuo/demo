@@ -1,13 +1,16 @@
 package com.hackcrown.demo.config;
 
 import javax.annotation.Resource;
+
+import com.hackcrown.demo.config.interceptor.InjectionAttackInterceptor;
+import com.hackcrown.demo.config.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class WebConfig implements WebMvcConfigurer {
+public class WebInterceptorComponentConfig implements WebMvcConfigurer {
 	
 	@Resource
 	private LoginInterceptor loginInterceptor;
@@ -16,7 +19,7 @@ public class WebConfig implements WebMvcConfigurer {
 	private InjectionAttackInterceptor injectionAttackInterceptor;
 
 
-    public WebConfig(){
+    public WebInterceptorComponentConfig(){
         super();
     }
 
