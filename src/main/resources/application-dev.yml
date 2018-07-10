@@ -17,3 +17,7 @@ mybatis:
   mapper-locations: mapper/*.xml
   type-aliases-package: com.hackcrown.demo.domain
 
+login-intercepter-switch: off
+
+login-filter-switch: off
+

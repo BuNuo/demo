@@ -11,6 +11,9 @@ public class WebConfig implements WebMvcConfigurer {
 	
 	@Resource
 	private LoginInterceptor loginInterceptor;
+	
+	@Resource
+	private InjectionAttackInterceptor injectionAttackInterceptor;
 
 
     public WebConfig(){
@@ -19,16 +22,28 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		// 自定义拦截器，添加拦截路径和排除拦截路径
-    	InterceptorRegistration interceptor = registry.addInterceptor(loginInterceptor);
+    	/****************************start*****************************/
+    	// 登录拦截器，添加拦截路径和排除拦截路径
+    	InterceptorRegistration injectionAttackInterceptorRegistration = registry.addInterceptor(injectionAttackInterceptor);
     	
     	//排除的路径
-    	interceptor.excludePathPatterns("/");
-    	interceptor.excludePathPatterns("/login");
-    	interceptor.excludePathPatterns("/static/*");
     	
     	//需要拦截的路径
-    	interceptor.addPathPatterns("/**");
+    	injectionAttackInterceptorRegistration.addPathPatterns("/**");
+    	/****************************end*****************************/
+    	
+    	/****************************start*****************************/
+		// 登录拦截器，添加拦截路径和排除拦截路径
+    	InterceptorRegistration loginInterceptorRegistration = registry.addInterceptor(loginInterceptor);
+    	
+    	//排除的路径
+    	loginInterceptorRegistration.excludePathPatterns("/");
+    	loginInterceptorRegistration.excludePathPatterns("/login");
+    	loginInterceptorRegistration.excludePathPatterns("/static/*");
+    	
+    	//需要拦截的路径
+    	loginInterceptorRegistration.addPathPatterns("/**");
+    	/****************************end*****************************/
 	}
 
 }
