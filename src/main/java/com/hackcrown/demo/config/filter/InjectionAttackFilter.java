@@ -13,11 +13,14 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Component;
+
 import com.hackcrown.demo.config.BodyReaderWrapper;
 import com.hackcrown.demo.config.DefaultInjectionAttackHandler;
 import com.hackcrown.demo.config.InjectionAttackHandler;
 import com.hackcrown.demo.utils.RequestUtils;
 
+@Component
 public class InjectionAttackFilter implements Filter {
 
     private static final String    X_FRAME_VALUE           = "SAMEORIGIN";

@@ -19,10 +19,12 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import com.hackcrown.demo.enums.ResultEnum;
 import com.hackcrown.demo.exception.DemoException;
 
+@Component
 public class SessionFilter implements Filter {
 	private static final Logger logger = LoggerFactory.getLogger(SessionFilter.class);
 	

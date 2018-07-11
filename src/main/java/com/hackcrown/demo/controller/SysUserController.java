@@ -7,6 +7,7 @@ import com.hackcrown.demo.exception.DemoException;
 import com.hackcrown.demo.service.SysUserService;
 import com.hackcrown.demo.utils.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -56,7 +57,7 @@ public class SysUserController {
         return ResultUtil.success();
     }
 
-    @PostMapping(value = "/updateUser")
+    @PostMapping(value = "/updateUser", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public void update(@RequestBody SysUser sysUser) {
         sysUserService.update(sysUser);
     }
